@@ -35,6 +35,7 @@ module.exports = {
             if (userId <= 0) {
                 throw new Error('User ID has to be > 0');
             }
+            
             next();
         } catch (e) {
             res.status(400).json(e.message);
