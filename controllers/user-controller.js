@@ -27,11 +27,7 @@ module.exports = {
     getUserById: async (req, res) => {
         try {
             const { userId } = req.params;
-
-            if (userId < 0) {
-                throw new Error('User ID has to be > 0');
-            }
-
+            
             const user = await userService.findUserById(userId);
 
             res.status(200).json(user);
@@ -44,10 +40,6 @@ module.exports = {
     updateUser: async(req, res) => {
         try {
             const { userId } = req.params;
-
-            if (userId < 0) {
-                throw new Error('User ID has to be > 0');
-            }
 
             await userService.changeUser(userId, req.body);
 
